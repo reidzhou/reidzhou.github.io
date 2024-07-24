@@ -8,13 +8,15 @@ HTMLElement.prototype.wrap = function(wrapper) {
 
 Fluid.plugins = {
 
-  typing: function(text) {
+  typing: function(text, isIndex) {
     if (!('Typed' in window)) { return; }
+
+    var typedText = !isIndex ? text : `${text} \n ^500 <h5 style="display: inline;color: #FFFFFFA6">${new Date().toString()}</h5>`;
 
     var typed = new window.Typed('#subtitle', {
       strings: [
         '  ',
-        text
+        typedText
       ],
       cursorChar: CONFIG.typing.cursorChar,
       typeSpeed : CONFIG.typing.typeSpeed,
@@ -25,6 +27,7 @@ Fluid.plugins = {
     if (subtitle) {
       subtitle.innerText = '';
     }
+
     jQuery(document).ready(function() {
       typed.start();
     });

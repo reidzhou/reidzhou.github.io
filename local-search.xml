@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>什么是Open AI的Function Calling</title>
+    <link href="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/"/>
+    <url>/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Open-AI的Function-Calling"><a href="#Open-AI的Function-Calling" class="headerlink" title="Open AI的Function Calling"></a>Open AI的Function Calling</h1><p>Function Calling是Open AI于2023&#x2F;06&#x2F;13发布的模型功能，主要目的在于增强语言大模型的可用性</p><p>根据发布内容的描述，Function Calling主要解决以下三个问题：</p><ol><li>增强大模型的问答能力：大模型的本质是数据统计总结，模型训练完成之后会趋于稳定，因此大模型无法支持信息频繁变动或者针对未来预测的场景，比如天气、股票、金融等等领域，那么Function Calling就是提供一种外部扩展的方式来增强这些场景下的问答能力</li><li>答案转换：实现自然语言答案向特定领域语言的转换能力，比如转换成SQL语句、GraphSQL语句等等特定领域，在一些中间件、工具场景、编写工具的集成场景会非常有用</li><li>结构化数据提取：提供自然语言答案结构化数据提取的能力，比如转换成JSON数据结构或者其他类型</li></ol><p><a href="https://openai.com/index/function-calling-and-other-api-updates/">发布原文👇</a></p><h1 id="Function-Calling的原理是怎么样的？"><a href="#Function-Calling的原理是怎么样的？" class="headerlink" title="Function Calling的原理是怎么样的？"></a>Function Calling的原理是怎么样的？</h1><ol><li>模型客户端构建模型调用请求时，除了本身的问题数据以外，还需要添加Function Calling相关的数据，主要用于定义含糊的名称、参数等元数据，另外还需要提供函数具体功能实现</li><li>大模型接收请求，返回答案，这一步骤主要包含函数调用相关的回答信息，用户无感知</li><li>模型客户端根据大模型的返回，调用本地实现的外部函数，获取函数结果</li><li>模型客户端重新构建请求，添加外部函数的调用结果，再次请求大模型</li><li>大模型根据完整的请求数据，返回对应的问答结果，这一步的结果会直接呈现给用户</li></ol><p>流程图示如下：<br><img src="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/openai-function-calling-flow.jpg" title="来源：https://docs.spring.io/spring-ai/reference/1.0/api/chat/functions/openai-chat-functions.html#_openai_api_function_calling_flow"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>人工智能</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI</tag>
+      
+      <tag>Open AI</tag>
+      
+      <tag>Function Calling</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Spring AI项目拉取问题</title>
     <link href="/2024/07/21/spring-ai%E9%A1%B9%E7%9B%AE%E6%8B%89%E5%8F%96%E9%97%AE%E9%A2%98/"/>
     <url>/2024/07/21/spring-ai%E9%A1%B9%E7%9B%AE%E6%8B%89%E5%8F%96%E9%97%AE%E9%A2%98/</url>
