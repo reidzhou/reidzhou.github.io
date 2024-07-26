@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Spring AI入门</title>
+    <link href="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/"/>
+    <url>/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-AI"><a href="#Spring-AI" class="headerlink" title="Spring AI"></a>Spring AI</h1><h2 id="什么是Spring-AI"><a href="#什么是Spring-AI" class="headerlink" title="什么是Spring AI"></a>什么是Spring AI</h2><p>首先看一段官网描述的翻译</p><p><img src="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai.png" title="来源：Spring AI官网"></p><p>Spring AI项目旨在简化包含人工智能应用的开发，避免不必要的复杂性。</p><p>这个项目的灵感来源于流行的Python框架，比如LangChain、LlamaIndex，不过Spring AI并不是这些项目的平台移植版本。生成式人工智能的浪潮不应该仅限于Python开发者，其他语言的开发者同样应该处于其中，比如Java。</p><p>Spring AI项目的核心是，提供开发AI应用所用的基础抽象组件，并提供多种抽象实现，可以通过较少的代码变更进行组件切换。</p><p>Spring AI具有以下功能模块：</p><ol><li>内置主流的模型集成，比如OpenAI、Microsoft、Amazon、Google、Huggingface等。</li><li>支持多种类型的模型，比如语言互动类（Chat）、文生图（Text to Image）、音频处理（Audio Transcription）、文生音（Text to Speech）等。</li><li>提供跨AI模型供应商的门户接口，支持同步和异步流方式，支持调用模型特有功能。</li><li>AI模型输出做统一的对象转换。</li><li>支持主流的向量数据库，比如Apache Cassandra、Azure Vector Search、Chroma、Milvus、Neo4j、PostgreSQL&#x2F;PGVector、PineCone、Qdrant、Redis、Weaviate。</li><li>提供跨向量数据库的门户接口，支持类似SQL条件过滤一样的查询方式</li><li>Function Calling（注：<a href="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/" title="什么是Open AI的Function Calling">Function Calling介绍可以看这里</a>）</li><li>Spring Boot环境下的自动配置，以及各种模型和向量数据库的Starter实现</li><li>数据引擎的ETL工具框架</li></ol><p>一句话概括：打造一个极具Spring思维的AI应用开发框架并引领后续的AI技术浪潮</p><h2 id="Spring-AI支持的模型类型"><a href="#Spring-AI支持的模型类型" class="headerlink" title="Spring AI支持的模型类型"></a>Spring AI支持的模型类型</h2><p>目前Spring AI支持4种任务模式：</p><ol><li>Embeddings Model </li><li>Chat Model</li><li>Image Model</li><li>Audio Model</li></ol><h3 id="Embeddings-Model"><a href="#Embeddings-Model" class="headerlink" title="Embeddings Model"></a>Embeddings Model</h3><p>AI模型，或者说机器学习，本质其实是数据统计，它们只能认识数字或是基于数字的多维数组，是无法理解真实世界的数据的，比如自然语言、图片、文档、声音，那么就需要一种工具手段，能够把真实世界的数据转换成模型能够识别理解的数据类型，这个手段就叫做Embeddings。</p><p>Embeddings的核心逻辑就是将自然语言、图片、声音等原始数据转换成数字向量，比如文本<code>我是谁</code>转换成向量可能是<code>[123.123123, 456.456456, ...]</code></p><p>Spring AI提供了Embeddings模型的抽象，但是目前只支持文本类型，不过也可以使用更高级别的Model接口来实现其他数据类型的Embeddings模型。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">EmbeddingModel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Model</span>&lt;EmbeddingRequest, EmbeddingResponse&gt; &#123;<br><br><span class="hljs-meta">@Override</span><br>EmbeddingResponse <span class="hljs-title function_">call</span><span class="hljs-params">(EmbeddingRequest request)</span>;<br><br>  <span class="hljs-comment">// ignore</span><br><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="Chat-Model（对话交互模型）"><a href="#Chat-Model（对话交互模型）" class="headerlink" title="Chat Model（对话交互模型）"></a>Chat Model（对话交互模型）</h3><p>Chat Model是以自然语言为主、具备人机交互模式的模型，也就是时下比较火热的LLM（Large Language Model）。</p><p>Chat Model的交互方式目前主要分为两种方式：</p><ol><li>同步交互：用户的每一次问题都要等待模型返回完整的回答</li><li>流式交互：大模型在进行推理的时候，需要进行复杂的计算，尤其是在长上下文环境中，结果的生成会比较耗费时间，因此使用流式输出增强用户体验，这是目前的主流方式。</li></ol><p>Spring AI Chat Model的内部逻辑如图：<br><img src="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/chat-flow.jpg" title="来源：Spring AI官网"></p><h3 id="Image-Model"><a href="#Image-Model" class="headerlink" title="Image Model"></a>Image Model</h3><p>Spring AI的Image Model目前提供的能力只有文生图。</p><p>目前这一块模型的完成度不高，还不稳定。</p><h3 id="Audio-Model"><a href="#Audio-Model" class="headerlink" title="Audio Model"></a>Audio Model</h3><p>Spring Audio Model目前提供的能力有TTS（Text To Speech）、语音识别。</p><p>目前这一块模型的完成度不高，还不稳定。</p><h2 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h2><p>向量数据库的概念由来已久，不过生成式AI、LLM、RAG等概念把向量数据库的热度推向了一个新的高度。</p><p>向量数据库的核心作用是数据向量的存储管理，并提供相似度查询。</p><p>在AI使用场景下，向量数据库往往是作为外部信息提供者的角色，为模型足够多的上下文环境数据，让模型能够做出更准确、更实时的结果。</p><p>目前Spring AI支持的向量数据库如图：<br><img src="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai-vector-store.png" title="来源：Spring AI官网"></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个文章主要是简单的介绍一下Spring AI框架以及这个框架具备的能力。</p><h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ol><li><a href="https://docs.spring.io/spring-ai/reference/1.0/index.html">Spring AI</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>人工智能</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>什么是Open AI的Function Calling</title>
     <link href="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/"/>
     <url>/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/</url>
@@ -42,10 +67,16 @@
     
     <categories>
       
-      <category>Spring AI</category>
+      <category>人工智能</category>
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>Spring AI</tag>
+      
+    </tags>
     
   </entry>
   

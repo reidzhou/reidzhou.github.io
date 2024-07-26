@@ -16,26 +16,26 @@
   <meta name="author" content="Reid Zhou">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Open AI的Function CallingFunction Calling是Open AI于2023&#x2F;06&#x2F;13发布的模型功能，主要目的在于增强语言大模型的可用性 根据发布内容的描述，Function Calling主要解决以下三个问题：  增强大模型的问答能力：大模型的本质是数据统计总结，模型训练完成之后会趋于稳定，因此大模型无法支持信息频繁变动或者针对未来预测的场景，">
+    <meta name="description" content="Spring AI什么是Spring AI首先看一段官网描述的翻译  Spring AI项目旨在简化包含人工智能应用的开发，避免不必要的复杂性。 这个项目的灵感来源于流行的Python框架，比如LangChain、LlamaIndex，不过Spring AI并不是这些项目的平台移植版本。生成式人工智能的浪潮不应该仅限于Python开发者，其他语言的开发者同样应该处于其中，比如Java。 Sprin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是Open AI的Function Calling">
-<meta property="og:url" content="http://example.com/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/index.html">
+<meta property="og:title" content="Spring AI入门">
+<meta property="og:url" content="http://example.com/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Open AI的Function CallingFunction Calling是Open AI于2023&#x2F;06&#x2F;13发布的模型功能，主要目的在于增强语言大模型的可用性 根据发布内容的描述，Function Calling主要解决以下三个问题：  增强大模型的问答能力：大模型的本质是数据统计总结，模型训练完成之后会趋于稳定，因此大模型无法支持信息频繁变动或者针对未来预测的场景，">
+<meta property="og:description" content="Spring AI什么是Spring AI首先看一段官网描述的翻译  Spring AI项目旨在简化包含人工智能应用的开发，避免不必要的复杂性。 这个项目的灵感来源于流行的Python框架，比如LangChain、LlamaIndex，不过Spring AI并不是这些项目的平台移植版本。生成式人工智能的浪潮不应该仅限于Python开发者，其他语言的开发者同样应该处于其中，比如Java。 Sprin">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/openai-function-calling-flow.jpg">
-<meta property="article:published_time" content="2024-07-24T00:19:56.000Z">
-<meta property="article:modified_time" content="2024-07-24T01:57:10.218Z">
+<meta property="og:image" content="http://example.com/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai.png">
+<meta property="og:image" content="http://example.com/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/chat-flow.jpg">
+<meta property="og:image" content="http://example.com/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai-vector-store.png">
+<meta property="article:published_time" content="2024-07-26T05:13:49.000Z">
+<meta property="article:modified_time" content="2024-07-26T21:01:26.587Z">
 <meta property="article:author" content="Reid Zhou">
-<meta property="article:tag" content="AI">
-<meta property="article:tag" content="Open AI">
-<meta property="article:tag" content="Function Calling">
+<meta property="article:tag" content="Spring AI">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/openai-function-calling-flow.jpg">
+<meta name="twitter:image" content="http://example.com/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai.png">
   
   
   
-  <title>什么是Open AI的Function Calling - Hexo</title>
+  <title>Spring AI入门 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -189,7 +189,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" style="white-space: pre-wrap" data-typed-text="什么是Open AI的Function Calling"></span>
+            <span id="subtitle" style="white-space: pre-wrap" data-typed-text="Spring AI入门"></span>
           
         </div>
 
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-24 08:19" pubdate>
-          2024年7月24日 早上
+        <time datetime="2024-07-26 13:13" pubdate>
+          2024年7月26日 下午
         </time>
       </span>
     
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          477 字
+          1k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          4 分钟
+          9 分钟
         
       </span>
     
@@ -260,27 +260,60 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">什么是Open AI的Function Calling</h1>
+            <h1 id="seo-header">Spring AI入门</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Open-AI的Function-Calling"><a href="#Open-AI的Function-Calling" class="headerlink" title="Open AI的Function Calling"></a>Open AI的Function Calling</h1><p>Function Calling是Open AI于2023&#x2F;06&#x2F;13发布的模型功能，主要目的在于增强语言大模型的可用性</p>
-<p>根据发布内容的描述，Function Calling主要解决以下三个问题：</p>
+                <h1 id="Spring-AI"><a href="#Spring-AI" class="headerlink" title="Spring AI"></a>Spring AI</h1><h2 id="什么是Spring-AI"><a href="#什么是Spring-AI" class="headerlink" title="什么是Spring AI"></a>什么是Spring AI</h2><p>首先看一段官网描述的翻译</p>
+<p><img src="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai.png" srcset="/img/loading.gif" lazyload title="来源：Spring AI官网"></p>
+<p>Spring AI项目旨在简化包含人工智能应用的开发，避免不必要的复杂性。</p>
+<p>这个项目的灵感来源于流行的Python框架，比如LangChain、LlamaIndex，不过Spring AI并不是这些项目的平台移植版本。生成式人工智能的浪潮不应该仅限于Python开发者，其他语言的开发者同样应该处于其中，比如Java。</p>
+<p>Spring AI项目的核心是，提供开发AI应用所用的基础抽象组件，并提供多种抽象实现，可以通过较少的代码变更进行组件切换。</p>
+<p>Spring AI具有以下功能模块：</p>
 <ol>
-<li>增强大模型的问答能力：大模型的本质是数据统计总结，模型训练完成之后会趋于稳定，因此大模型无法支持信息频繁变动或者针对未来预测的场景，比如天气、股票、金融等等领域，那么Function Calling就是提供一种外部扩展的方式来增强这些场景下的问答能力</li>
-<li>答案转换：实现自然语言答案向特定领域语言的转换能力，比如转换成SQL语句、GraphSQL语句等等特定领域，在一些中间件、工具场景、编写工具的集成场景会非常有用</li>
-<li>结构化数据提取：提供自然语言答案结构化数据提取的能力，比如转换成JSON数据结构或者其他类型</li>
+<li>内置主流的模型集成，比如OpenAI、Microsoft、Amazon、Google、Huggingface等。</li>
+<li>支持多种类型的模型，比如语言互动类（Chat）、文生图（Text to Image）、音频处理（Audio Transcription）、文生音（Text to Speech）等。</li>
+<li>提供跨AI模型供应商的门户接口，支持同步和异步流方式，支持调用模型特有功能。</li>
+<li>AI模型输出做统一的对象转换。</li>
+<li>支持主流的向量数据库，比如Apache Cassandra、Azure Vector Search、Chroma、Milvus、Neo4j、PostgreSQL&#x2F;PGVector、PineCone、Qdrant、Redis、Weaviate。</li>
+<li>提供跨向量数据库的门户接口，支持类似SQL条件过滤一样的查询方式</li>
+<li>Function Calling（注：<a href="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/" title="什么是Open AI的Function Calling">Function Calling介绍可以看这里</a>）</li>
+<li>Spring Boot环境下的自动配置，以及各种模型和向量数据库的Starter实现</li>
+<li>数据引擎的ETL工具框架</li>
 </ol>
-<p><a target="_blank" rel="noopener" href="https://openai.com/index/function-calling-and-other-api-updates/">发布原文👇</a></p>
-<h1 id="Function-Calling的原理是怎么样的？"><a href="#Function-Calling的原理是怎么样的？" class="headerlink" title="Function Calling的原理是怎么样的？"></a>Function Calling的原理是怎么样的？</h1><ol>
-<li>模型客户端构建模型调用请求时，除了本身的问题数据以外，还需要添加Function Calling相关的数据，主要用于定义含糊的名称、参数等元数据，另外还需要提供函数具体功能实现</li>
-<li>大模型接收请求，返回答案，这一步骤主要包含函数调用相关的回答信息，用户无感知</li>
-<li>模型客户端根据大模型的返回，调用本地实现的外部函数，获取函数结果</li>
-<li>模型客户端重新构建请求，添加外部函数的调用结果，再次请求大模型</li>
-<li>大模型根据完整的请求数据，返回对应的问答结果，这一步的结果会直接呈现给用户</li>
+<p>一句话概括：打造一个极具Spring思维的AI应用开发框架并引领后续的AI技术浪潮</p>
+<h2 id="Spring-AI支持的模型类型"><a href="#Spring-AI支持的模型类型" class="headerlink" title="Spring AI支持的模型类型"></a>Spring AI支持的模型类型</h2><p>目前Spring AI支持4种任务模式：</p>
+<ol>
+<li>Embeddings Model </li>
+<li>Chat Model</li>
+<li>Image Model</li>
+<li>Audio Model</li>
 </ol>
-<p>流程图示如下：<br><img src="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/openai-function-calling-flow.jpg" srcset="/img/loading.gif" lazyload title="来源：https://docs.spring.io/spring-ai/reference/1.0/api/chat/functions/openai-chat-functions.html#_openai_api_function_calling_flow"></p>
+<h3 id="Embeddings-Model"><a href="#Embeddings-Model" class="headerlink" title="Embeddings Model"></a>Embeddings Model</h3><p>AI模型，或者说机器学习，本质其实是数据统计，它们只能认识数字或是基于数字的多维数组，是无法理解真实世界的数据的，比如自然语言、图片、文档、声音，那么就需要一种工具手段，能够把真实世界的数据转换成模型能够识别理解的数据类型，这个手段就叫做Embeddings。</p>
+<p>Embeddings的核心逻辑就是将自然语言、图片、声音等原始数据转换成数字向量，比如文本<code>我是谁</code>转换成向量可能是<code>[123.123123, 456.456456, ...]</code></p>
+<p>Spring AI提供了Embeddings模型的抽象，但是目前只支持文本类型，不过也可以使用更高级别的Model接口来实现其他数据类型的Embeddings模型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">EmbeddingModel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Model</span>&lt;EmbeddingRequest, EmbeddingResponse&gt; &#123;<br><br>	<span class="hljs-meta">@Override</span><br>	EmbeddingResponse <span class="hljs-title function_">call</span><span class="hljs-params">(EmbeddingRequest request)</span>;<br><br>  <span class="hljs-comment">// ignore</span><br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Chat-Model（对话交互模型）"><a href="#Chat-Model（对话交互模型）" class="headerlink" title="Chat Model（对话交互模型）"></a>Chat Model（对话交互模型）</h3><p>Chat Model是以自然语言为主、具备人机交互模式的模型，也就是时下比较火热的LLM（Large Language Model）。</p>
+<p>Chat Model的交互方式目前主要分为两种方式：</p>
+<ol>
+<li>同步交互：用户的每一次问题都要等待模型返回完整的回答</li>
+<li>流式交互：大模型在进行推理的时候，需要进行复杂的计算，尤其是在长上下文环境中，结果的生成会比较耗费时间，因此使用流式输出增强用户体验，这是目前的主流方式。</li>
+</ol>
+<p>Spring AI Chat Model的内部逻辑如图：<br><img src="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/chat-flow.jpg" srcset="/img/loading.gif" lazyload title="来源：Spring AI官网"></p>
+<h3 id="Image-Model"><a href="#Image-Model" class="headerlink" title="Image Model"></a>Image Model</h3><p>Spring AI的Image Model目前提供的能力只有文生图。</p>
+<p>目前这一块模型的完成度不高，还不稳定。</p>
+<h3 id="Audio-Model"><a href="#Audio-Model" class="headerlink" title="Audio Model"></a>Audio Model</h3><p>Spring Audio Model目前提供的能力有TTS（Text To Speech）、语音识别。</p>
+<p>目前这一块模型的完成度不高，还不稳定。</p>
+<h2 id="向量数据库"><a href="#向量数据库" class="headerlink" title="向量数据库"></a>向量数据库</h2><p>向量数据库的概念由来已久，不过生成式AI、LLM、RAG等概念把向量数据库的热度推向了一个新的高度。</p>
+<p>向量数据库的核心作用是数据向量的存储管理，并提供相似度查询。</p>
+<p>在AI使用场景下，向量数据库往往是作为外部信息提供者的角色，为模型足够多的上下文环境数据，让模型能够做出更准确、更实时的结果。</p>
+<p>目前Spring AI支持的向量数据库如图：<br><img src="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/spring-ai-vector-store.png" srcset="/img/loading.gif" lazyload title="来源：Spring AI官网"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这个文章主要是简单的介绍一下Spring AI框架以及这个框架具备的能力。</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-ai/reference/1.0/index.html">Spring AI</a></li>
+</ol>
 
                 
               </div>
@@ -314,11 +347,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/AI/" class="print-no-link">#AI</a>
-      
-        <a href="/tags/Open-AI/" class="print-no-link">#Open AI</a>
-      
-        <a href="/tags/Function-Calling/" class="print-no-link">#Function Calling</a>
+        <a href="/tags/Spring-AI/" class="print-no-link">#Spring AI</a>
       
     </div>
   
@@ -330,8 +359,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>什么是Open AI的Function Calling</div>
-      <div>http://example.com/2024/07/24/什么是open-ai的function-calling/</div>
+      <div>Spring AI入门</div>
+      <div>http://example.com/2024/07/26/spring-ai入门/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +372,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月24日</div>
+          <div>2024年7月26日</div>
         </div>
       
       
@@ -375,18 +404,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/26/spring-ai%E5%85%A5%E9%97%A8/" title="Spring AI入门">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring AI入门</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/21/spring-ai%E9%A1%B9%E7%9B%AE%E6%8B%89%E5%8F%96%E9%97%AE%E9%A2%98/" title="Spring AI项目拉取问题">
-                        <span class="hidden-mobile">Spring AI项目拉取问题</span>
+                      <a href="/2024/07/24/%E4%BB%80%E4%B9%88%E6%98%AFopen-ai%E7%9A%84function-calling/" title="什么是Open AI的Function Calling">
+                        <span class="hidden-mobile">什么是Open AI的Function Calling</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
